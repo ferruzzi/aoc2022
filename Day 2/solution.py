@@ -58,9 +58,8 @@ def score_match_pt_2(_match):
 
 @provide_inputs
 def solve1(inputs):
-    game = inputs
     total_score = 0
-    for match in game:
+    for match in inputs:
         total_score += score_match_pt_1(match.strip())
     assert total_score == 11150
     print(f'pt 1: {total_score}')

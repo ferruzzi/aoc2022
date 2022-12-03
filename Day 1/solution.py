@@ -19,10 +19,12 @@ def parse_file(inputs):
 
 def solve():
     parsed_file = parse_file()
+
     subtotals = [sum(elf) for elf in parsed_file]
     pt1 = max(subtotals)
     assert pt1 == 70720
     print(f'pt 1: found {pt1} solution: 70720')
+
     top_three = sorted(subtotals, reverse=True)[:3]
     pt2 = sum(top_three)
     assert pt2 == 207148
