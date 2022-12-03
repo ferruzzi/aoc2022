@@ -1,8 +1,5 @@
 # Link to puzzle: https://adventofcode.com/2022/day/3
-
-def parse_file():
-    with open('input.txt', 'r') as file:
-        return [line.strip() for line in file.readlines()]
+from utils import provide_inputs
 
 
 def find_match(sack):
@@ -22,19 +19,23 @@ def find_match_2(sacks, score=0):
         return score
 
 
-def solve1(sacks):
+@provide_inputs
+def solve1(inputs):
     score = 0
-    for sack in sacks:
+    for sack in inputs:
         match = find_match(sack)
         score += value(match)
-    print(score)
+    assert score == 7845
+    print(f'pt1: {score}')
 
 
-def solve2(sacks):
-    score = find_match_2(sacks)
-    print(score)
+@provide_inputs
+def solve2(inputs):
+    score = find_match_2(inputs)
+    assert score == 2790
+    print(f'pt2: {score}')
 
 
 if __name__ == "__main__":
-    solve1(parse_file())
-    solve2(parse_file())
+    solve1()
+    solve2()

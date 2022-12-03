@@ -2,24 +2,7 @@
 
 from enum import IntEnum
 
-
-def read_file():
-    with open('input.txt', 'r') as file:
-        return file.readlines()
-
-
-game = [
-    "A X",
-    "A Y",
-    "A Z",
-    "B X",
-    "B Y",
-    "B Z",
-    "C X",
-    "C Y",
-    "C Z"
-]
-
+from utils import provide_inputs
 
 their_plays = ["A", "B", "C"]
 my_plays = ["X", "Y", "Z"]
@@ -73,15 +56,27 @@ def score_match_pt_2(_match):
     return score
 
 
-if __name__ == "__main__":
-    game = read_file()
+@provide_inputs
+def solve1(inputs):
+    game = inputs
     total_score = 0
     for match in game:
         total_score += score_match_pt_1(match.strip())
+    assert total_score == 11150
     print(f'pt 1: {total_score}')
+
+
+@provide_inputs
+def solve2(inputs):
     total_score = 0
-    for match in game:
+    for match in inputs:
         total_score += score_match_pt_2(match.strip())
+    assert total_score == 8295
     print(f'pt 2: {total_score}')
+
+
+if __name__ == "__main__":
+    solve1()
+    solve2()
 
 
