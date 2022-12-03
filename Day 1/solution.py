@@ -1,3 +1,5 @@
+# Link to puzzle: https://adventofcode.com/2022/day/3
+
 def parse_file():
     with open('input.txt', 'r') as file:
         lines = file.readlines()
